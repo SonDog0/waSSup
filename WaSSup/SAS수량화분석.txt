@@ -1,0 +1,83 @@
+수량화 방법 3에 의한 분석 - SAS 코드
+start QUANT3;
+       reset nolog;
+       Dr=F[,+];  Dc=F[+,];  N=sum(F);
+       G =diag(1/sqrt(Dr))*F*diag(1/sqrt(Dc));
+       call svd(U,q,V,G);
+       EigenVal=(q#q)`; c=min(nrow(F),ncol(F));
+       Eigen=EigenVal[2:c]; Corr=q[2:c];
+       Percent=Eigen/(sum(EigenVal)-1)*100;
+       X=diag(sqrt(N/Dr))*U; X1_X2=X[,2:3];
+       Y=diag(sqrt(N/Dc))*V; Y1_Y2=Y[,2:3];
+       print ,,"Quantification Method III using SAS/IML";
+       print , "Response Pattern Matrix", F[format=3.0],;
+       print , "Eigenvalues and Percentage(%)";
+       print , Corr[format=6.4] Eigen[format=6.4]  Percent[format=6.2],;
+       print , "Row Scores     ",  X1_X2[format=8.4],;
+       print , "Column Scores  ",  Y1_Y2[format=8.4],;
+       reset log;
+    finish;
+     F = {9139 4762 8599 14288 6697,
+36483 16865 25237 27098 17940,
+4362 1305 966 4350 2903,
+7351 3395 6561 4175 3623,
+10087 3600 4973 8345 6894,
+147990 51182 70570 175035 110133,
+4685 1442 2158 3175 2126,
+1724 825 1224 2432 1319,
+3216 2192 3663 3058 1734,
+7057 2648 5583 7158 3624,
+23495 5015 7226 6651 7217,
+2315 1669 2890 4367 2256,
+11329 4989 6033 11814 7706,
+15921 5108 5869 11320 7228,
+132756 40971 56157 113807 73782,
+149428 59852 73484 164414 117177,
+42066 15146 18518 46153 28541,
+25456 8156 11513 20801 12398,
+12669 4266 6081 13857 9052,
+263298 68087 67398 139157 139259,
+1493 629 1062 2077 1094,
+17191 5562 8195 14451 8883,
+28737 11567 15058 24531 14812,
+109302 38220 45360 76426 72264,
+15843 7825 8566 9996 7994,
+2396 682 926 1988 1247,
+206 131 306 508 190,
+19008 4957 6277 10327 8019,
+15588 4531 5922 11596 6888,
+2434 1414 4630 2283 1251,
+44280 16596 21406 35710 23520,
+24586 8099 10815 21388 13381,
+6501 2290 3995 6302 3639,
+135471 49650 56155 115819 91937,
+43609 15908 22088 31012 20375,
+6819 2387 3347 8253 4623,
+171823 71448 89746 139964 101052}
+;
+
+    run QUANT3;
+
+quit;
+
+
+plot 그리기
+
+data ex1;
+set goods;
+run;
+proc plot data=ex1;
+plot x2*x1='*' $name/href=0 vref=0;
+run;
+data ex2;
+set grade;
+run;
+proc plot data=ex2;
+plot y2*y1='*'$grade/href=0 vref=0;
+run;
+data ex3;
+merge ex1 ex2;
+run;
+proc plot data=ex3; 
+plot X2*X1='o'$name Y2*Y1='*'$grade/OVERLAY href=0 vref=0;
+run;

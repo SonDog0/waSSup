@@ -1,0 +1,36 @@
+
+서식 : 검색어명_검색사이트_한/영검색_중복행제거여부
+
+검색어명 : LotteHS & Lpoint 
+_검색사이트 :  NBlog(네이버블로그) & ppomppu(커뮤니티사이트 '뽐뿌')
+_한/영검색 : default : 영어 , kr : 한글
+_중복행제거여부 : default : 중복행존재 , unique : 중복행제거
+
+WordCloud에 사용된 파일 : 
+LotteHS_Nblog_unique.txt ,  Lpoint_Nblog_mix_unique.txt , LotteHS_ppomppu_unique.txt ,  Lpoint_ppomppu_mix_unique.txt
+
+
+LotteHS_Nblog.txt  : 네이버 블로그에서 '롯데홈쇼핑'을 검색하였을때 추출되는 게시글 , 본문요약 목록 
+LotteHS_Nblog_unique.txt  :  LotteHS_Nblog.txt 파일에서 중복행 제거 ( 중복작성된 광고글 제거 )
+
+Lpoint_Nblog.txt : 네이버 블로그에서 'Lpoint'를 검색하였을때 추출되는 게시글 , 본문요약 목록 
+Lpoint_Nblog_unique.txt : Lpoint_Nblog.txt 파일에서 중복행 제거 
+Lpoint_Nblog_kr.txt : 네이버 블로그에서 '엘포인트'를 검색하였을때 추출되는 게시글 , 본문요약 목록 
+Lpoint_Nblog_unique.txt : Lpoint_Nblog_kr.txt 파일에서 중복행 제거 
+Lpoint_Nblog_mix.txt :  Lpoint_Nblog.txt + Lpoint_Nblog_kr.txt (한/영 모두 검색했을때 결과 )
+Lpoint_Nblog_mix_unique.txt : Lpoint_Nblog_mix.txt 파일에서 중복행 제거 
+
+
+
+
+
+LotteHS_ppomppu.txt : 뽐뿌에서 '롯데홈쇼핑'을 검색하였을때 추출되는 게시글 제목 목록
+LotteHS_ppomppu_unique.txt : LotteHS_ppomppu.txt 파일에서 중복행 제거 ( 중복작성된 광고글 제거 )
+
+Lpoint_ppomppu.txt : 뽐뿌에서 'Lpoint'를 검색하였을때 추출되는 게시글 제목 목록
+Lpoint_ppomppu_unique.txt : Lpoint_ppomppu.txt 파일에서 중복행 제거 
+Lpoint_ppomppu_kr.txt : 뽐뿌에서 '엘포인트'를 검색하였을때 추출되는 게시글 제목 목록
+Lpoint_ppomppu_kr_unique.txt : Lpoint_ppomppu_kr.txt 파일에서 중복행 제거 
+Lpoint_ppomppu_mix.txt : Lpoint_ppomppu.txt + Lpoint_ppomppu_kr.txt 
+Lpoint_ppomppu_mix_unique.txt : Lpoint_ppomppu_mix.txt 파일에서 중복행 제거 
+

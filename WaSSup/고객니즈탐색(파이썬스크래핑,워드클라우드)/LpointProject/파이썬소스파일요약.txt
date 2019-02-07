@@ -1,0 +1,13 @@
+LotteHS_Nblog.py : 네이버 블로그에서 '롯데홈쇼핑' 검색시 추출되는 게시글 제목 , 본문요약 스크래핑 소스 
+Lpoint_Nblog.py : 네이버 블로그에서 'Lpoint' 검색시 추출되는 게시글 제목 , 본문요약 스크래핑 소스 
+Lpoint_Nblog_kr.py : 네이버 블로그에서 '엘포인트' 검색시 추출되는 게시글 제목 , 본문요약 스크래핑 소스 
+
+LotteHS_ppomppu.py : 뽐뿌에서 '롯데홈쇼핑' 검색시 추출되는 게시글 제목 스크래핑 소스 
+Lpoint_ppomppu.py : 뽐뿌에서 'Lpoint' 검색시 추출되는 게시글 제목 스크래핑 소스 
+Lpoint_ppomppu_kr.py : 뽐뿌에서 '엘포인트' 검색시 추출되는 게시글 제목 스크래핑 소스 
+
+deduplication.py : 스크래핑 된 텍스트 파일에서 중복행을 제거하는 소스 
+WordCloud : 중복행 제거 된 텍스트 파일에서 빈도수 추출 및 시각화하는 소스 
+
+
+
